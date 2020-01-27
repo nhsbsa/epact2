@@ -742,4 +742,18 @@ details summary {
     line-height: 1.45;
 }
 
-
+.page-header .heading-secondary {
+  display: table-header-group;
+  margin-bottom: 0;
+  color: #6f777b;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.11111;
+  text-transform: none;
+}
+.page-header .heading-secondary {
+  font-size: 27px;
+  line-height: 1.11111;
+  padding-bottom: 6px;
+  padding-top: 4px;
+}

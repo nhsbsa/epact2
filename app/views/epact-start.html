@@ -1,0 +1,62 @@
+{% extends 'layouts/layout-transactional.html' %}
+
+{% block pageTitle %}
+  Start page template - NHS.UK prototype kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  href: "/",
+  text: "Home"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1>
+        Register to use ePACT2
+      </h1>
+
+      <p>
+        To apply to use ePACT2, you'll need to complete all the sections of this form.
+      </p>
+      <p>
+        Before you start, make sure you've read:
+      </p>
+
+      <ul>
+        <li>
+          the <a href="https://www.nhsbsa.nhs.uk/epact2/registering-epact2">registration guidance on the NHS Business Service Authority (NHSBSA) website</a>
+        </li>
+        <li>
+          the <a href="https://www.nhsbsa.nhs.uk/epact2/epact2-user-agreement-eua">ePACT2 user agreement (EUA)</a>
+        </li>
+      </ul>
+
+      <p>
+        NHSBSA provide training on how to use ePACT2.  you can find out more:
+      </p>
+
+      <ul>
+        <li>
+          on the <a href="https://www.nhsbsa.nhs.uk/epact2/epact2-training">NHSBSA website</a>
+        </li>
+        <li>
+          by contacting the training team at <a href="nhsbsa.epact2training@nhs.net ">nhsbsa.epact2training@nhs.net</a>
+        </li>
+      </ul>
+
+      <p>
+        Once your account is active, your user ID will be deactivated if you do not access the system for 6 months.
+      </p>
+
+      <a href="epact-form" class="nhsuk-button nhsuk-u-margin-bottom-8">
+        Start now
+      </a>
+
+    </div>
+
+  </div>
+{% endblock %}
