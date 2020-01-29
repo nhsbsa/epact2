@@ -1,153 +1,210 @@
-{% extends 'layouts/layout-transactional.html' %}
-
-{% block pageTitle %}
-  Start page template - NHS.UK prototype kit
-{% endblock %}
-
-{% block beforeContent %}
-{{ breadcrumb({
-  href: "/",
-  text: "Home"
-}) }}
-{% endblock %}
-
-{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  {% extends 'layouts/layout-transactional.html' %} {% block pageTitle %} ePACT2 registration {% endblock %} {% block beforeContent %} {{ breadcrumb({ href: "/", text: "Home" }) }} {% endblock %} {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
-      
-<header class="page-header">
+      <header class="page-header">
         <h1>Register to use ePACT2</h1>
       </header>
-        <h2 class="nhsuk-heading-l">Your details</h2>
-
-<fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-    <h1 class="nhsuk-heading-m">
-      What is your name?
-    </h1>
-  </legend>
-
-<div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="first-name">
-      First name
-    </label>
-    <input class="nhsuk-input" id="first-name" name="first-name" type="text">
-  </div>
-
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="last-name">
-      Last name
-    </label>
-    <input class="nhsuk-input" id="last-name" name="last-name" type="text">
-  </div>
-
-  </fieldset>
-
-<fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-    <h1 class="nhsuk-heading-m">
-      What is your email address?
-    </h1>
-  </legend>
-
-<div class="nhsuk-form-group">
-    <input class="nhsuk-input" id="email-address" name="email-aaddress" type="text">
-  </div>
-
-  </fieldset>
-
-<fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-    <h1 class="nhsuk-heading-m">
-      What is your job title?
-    </h1>
-  </legend>
-
-<div class="nhsuk-form-group">
-    <input class="nhsuk-input" id="job-title" name="job-title" type="text">
-  </div>
-
-  </fieldset>
-
-<fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-    <h1 class="nhsuk-heading-m">
-      Why do you need access to ePACT2?
-    </h1>
-  </legend>
-
-  <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
- 
-  </fieldset>
-  
-  <br><br>
-
-  <div class="nhsuk-checkboxes__item">
-        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
-        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-          Tick here to confirm you've read the ePACT2 user agreement (EUA)
-        </label>
-      </div>
-
-  <br>
-
-          <h2 class="nhsuk-heading-l">Your organisation's details</h2>
-
-<fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-    <h1 class="nhsuk-heading-m">
-      Select your organisation type
-    </h1>
-  </legend>
-
-  <div class="nhsuk-form-group">
-
-    <div class="nhsuk-radios">
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-hints-1" name="example-hints" type="radio" value="yes">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-1">
-          GP Practice
-        </label>
-      </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-hints-2" name="example-hints" type="radio" value="no">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-2">
-          Primary Care Network (PCN)
-        </label>
-      </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-hints-3" name="example-hints" type="radio" value="not sure">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-3">
-          NHS Trust/other
-        </label>
-        <span class="nhsuk-hint nhsuk-radios__hint" id="example-hints-2-item-hint">
-        Choose this option if you are:
-        <ul>
-        <li>a CCG  </li>              
-        <li>NHS England Local Team</li>
-        <li>Hospital Trusts</li>
-        <li>ISHP</li>
-        <li>Local Authority</li>
-        <li>Commissioning Support Units (CSUs)</li>
-       </ul> </span>
-      </div>
+      <h2 class="nhsuk-heading-l">Your details</h2>
+      <fieldset class="nhsuk-fieldset">
+        <h1 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">What is your name?</legend></h1>
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label"
+               for="first-name">First name</label> <input class="nhsuk-input"
+               id="first-name"
+               name="first-name"
+               type="text">
+        </div>
+        <div class="nhsuk-form-group">
+          <label class="nhsuk-label"
+               for="last-name">Last name</label> <input class="nhsuk-input"
+               id="last-name"
+               name="last-name"
+               type="text">
+        </div>
+      </fieldset>
+      <fieldset class="nhsuk-fieldset">
+        <h1 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">What is your email address?</legend></h1>
+        <div class="nhsuk-form-group">
+          <input class="nhsuk-input"
+               id="email-address"
+               name="email-aaddress"
+               type="text">
+        </div>
+      </fieldset>
+      <fieldset class="nhsuk-fieldset">
+        <h1 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">What is your job title?</legend></h1>
+        <div class="nhsuk-form-group">
+          <input class="nhsuk-input"
+               id="job-title"
+               name="job-title"
+               type="text">
+        </div>
+      </fieldset>
+      <fieldset class="nhsuk-fieldset">
+        <h1 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">Why do you need access to ePACT2?</legend></h1>
+        <textarea aria-describedby="example-hint"
+                  class="nhsuk-textarea"
+                  id="example"
+                  name="example"
+                  rows="5"></textarea>
+      </fieldset><br>
+      <br>
+      <div class="nhsuk-checkboxes__item">
+        <input class="nhsuk-checkboxes__input"
+             id="example-1"
+             name="example"
+             type="checkbox"
+             value="email"> <label class="nhsuk-label nhsuk-checkboxes__label"
+             for="example-1">Tick here to confirm you've read the ePACT2 user agreement (EUA)</label>
+      </div><br>
+      <h1>Your organisation's details</h1>
+      <fieldset class="nhsuk-fieldset">
+        <h2 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">Select your organisation type</legend></h2>
+        <div class="nhsuk-form-group">
+          <div class="nhsuk-radios">
             <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-hints-4" name="example-hints" type="radio" value="no">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-4">
-          Public sector and other organisations who need to monitor and manage prescribing data in primary care
-        </label>
-      </div>
-
+              <input class="nhsuk-radios__input"
+                   id="example-hints-1"
+                   name="example-hints"
+                   type="radio"
+                   value="yes"> <label class="nhsuk-label nhsuk-radios__label"
+                   for="example-hints-1">GP Practice</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input"
+                   id="example-hints-2"
+                   name="example-hints"
+                   type="radio"
+                   value="no"> <label class="nhsuk-label nhsuk-radios__label"
+                   for="example-hints-2">Primary Care Network (PCN)</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input"
+                   id="example-hints-3"
+                   name="example-hints"
+                   type="radio"
+                   value="not sure"> <label class="nhsuk-label nhsuk-radios__label"
+                   for="example-hints-3">NHS Trust/other</label> <span class="nhsuk-hint nhsuk-radios__hint"
+                   id="example-hints-8-item-hint">Choose this option if you are:</span>
+              <ul>
+                <li><span class="nhsuk-hint nhsuk-radios__hint"
+                      id="example-hints-2-item-hint">a CCG</span></li>
+                <li><span class="nhsuk-hint nhsuk-radios__hint"
+                      id="example-hints-3-item-hint">NHS England Local Team</span></li>
+                <li><span class="nhsuk-hint nhsuk-radios__hint"
+                      id="example-hints-4-item-hint">Hospital Trusts</span></li>
+                <li><span class="nhsuk-hint nhsuk-radios__hint"
+                      id="example-hints-5-item-hint">ISHP</span></li>
+                <li><span class="nhsuk-hint nhsuk-radios__hint"
+                      id="example-hints-6-item-hint">Local Authority</span></li>
+                <li><span class="nhsuk-hint nhsuk-radios__hint"
+                      id="example-hints-7-item-hint">Commissioning Support Units (CSUs)</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset class="nhsuk-fieldset">
+        <h1 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">Public sector and other organisations who need to monitor and manage prescribing data in primary care (Please provide details)</legend></h1>
+        <textarea aria-describedby="example-hint-9"
+                  class="nhsuk-textarea"
+                  id="example2"
+                  name="example2"
+                  rows="5"></textarea>
+      </fieldset><br>
+      <br>
+      <fieldset class="nhsuk-fieldset">
+        <h2 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">Select which level of access you need</legend></h2>
+        <div class="nhsuk-form-group">
+          <div class="nhsuk-radios">
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input"
+                   id="example-hints-1"
+                   name="example-hints"
+                   type="radio"
+                   value="yes"> <label class="nhsuk-label nhsuk-radios__label"
+                   for="example-hints-1">GP Practice</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input"
+                   id="example-hints-2"
+                   name="example-hints"
+                   type="radio"
+                   value="no"> <label class="nhsuk-label nhsuk-radios__label"
+                   for="example-hints-2">Prescriber level</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input"
+                   id="example-hints-2"
+                   name="example-hints"
+                   type="radio"
+                   value="no"> <label class="nhsuk-label nhsuk-radios__label"
+                   for="example-hints-2">Financial</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input"
+                   id="example-hints-2"
+                   name="example-hints"
+                   type="radio"
+                   value="no"> <label class="nhsuk-label nhsuk-radios__label"
+                   for="example-hints-2">National dashboard level</label>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input"
+                   id="example-hints-2"
+                   name="example-hints"
+                   type="radio"
+                   value="no"> <label class="nhsuk-label nhsuk-radios__label"
+                   for="example-hints-2">National level</label>
+            </div>
+          </div>
+        </div>
+      </fieldset><br>
+      <br>
+      <fieldset class="nhsuk-fieldset">
+        <h1 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">What is your organisation name?</legend></h1>
+        <div class="nhsuk-form-group">
+          <input class="nhsuk-input"
+               id="email-address"
+               name="email-aaddress"
+               type="text">
+        </div>
+      </fieldset>
+      <fieldset class="nhsuk-fieldset">
+        <h1 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">What is your organisation code?</legend></h1>
+        <div class="nhsuk-form-group">
+          <input class="nhsuk-input"
+               id="job-title"
+               name="job-title"
+               type="text">
+        </div>
+      </fieldset>
+      <fieldset class="nhsuk-fieldset">
+        <h1 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">Authoriser name</legend></h1>
+        <div class="nhsuk-form-group">
+          <input class="nhsuk-input"
+               id="email-address"
+               name="email-aaddress"
+               type="text">
+        </div>
+      </fieldset>
+      <fieldset class="nhsuk-fieldset">
+        <h1 class="nhsuk-heading-m"><legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">Authoriser email address</legend></h1>
+        <div class="nhsuk-form-group">
+          <input class="nhsuk-input"
+               id="job-title"
+               name="job-title"
+               type="text">
+        </div>
+      </fieldset>
     </div>
-  </div>
-
-</fieldset>
-      <a href="/" class="nhsuk-button nhsuk-u-margin-bottom-8">
-        Continue
-      </a>
-
-    </div>
-
-  </div>
-{% endblock %}
+  </div><a class="nhsuk-button nhsuk-u-margin-bottom-8"
+        href="epact-cya">Continue</a> {% endblock %}
+</body>
+</html>

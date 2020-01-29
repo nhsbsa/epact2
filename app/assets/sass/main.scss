@@ -757,3 +757,23 @@ details summary {
   padding-bottom: 6px;
   padding-top: 4px;
 }
+
+.form-group .panel-border-narrow {
+  float: left;
+  width: 100%;
+  padding-bottom: 0;
+}
+.panel-border-narrow {
+  border-left-width: 5px;
+}
+.panel {
+  box-sizing: border-box;
+  clear: both;
+  border-left-style: solid;
+  border-color: #bfc1c3;
+  padding: 0.78947em;
+  margin-bottom: 0.78947em;
+}
+.nhsuk-panel__title {
+  text-align: center;
+}

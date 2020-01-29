@@ -1,0 +1,90 @@
+{% extends 'layouts/layout-transactional.html' %}
+
+{% block pageTitle %}
+  ePACT2 registration
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  href: "/",
+  text: "Home"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      
+<header class="page-header">
+        <p class="page-header--sub heading-secondary">Register to use ePACT2</p>
+        <h1>Your organisation's details</h1>
+      </header>
+
+<fieldset class="nhsuk-fieldset">
+  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+    <h1 class="nhsuk-heading-l">
+      Select your organisation type
+    </h1>
+  </legend>
+
+  <div class="nhsuk-form-group">
+
+    <div class="nhsuk-radios">
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-hints-1" name="example-hints" type="radio" value="yes">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-1">
+          GP Practice
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-hints-2" name="example-hints" type="radio" value="no">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-2">
+          Primary Care Network (PCN)
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-hints-3" name="example-hints" type="radio" value="not sure">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-3">
+          NHS Trust/other
+        </label>
+        <span class="nhsuk-hint nhsuk-radios__hint" id="example-hints-2-item-hint">
+        Choose this option if you are:
+        <ul>
+        <li>a CCG  </li>              
+        <li>NHS England Local Team</li>
+        <li>Hospital Trusts</li>
+        <li>ISHP</li>
+        <li>Local Authority</li>
+        <li>Commissioning Support Units (CSUs)</li>
+       </ul> </span>
+      </div>
+            <div class="nhsuk-radios__item" data-target="wages-reveal">
+        <input class="nhsuk-radios__input" id="example-hints-4" name="example-hints" type="radio" value="no" aria-controls="wages-reveal-2" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-4">
+          Public sector and other organisations who need to monitor and manage prescribing data in primary care
+        </label>
+      </div>
+    </div>
+  </div>
+
+</fieldset>
+      <a href="epact-access-level" class="nhsuk-button nhsuk-u-margin-bottom-8">
+        Continue
+      </a>
+
+    </div>
+
+  </div>
+{% endblock %}
+    <script src="/public/javascripts/govuk-template.js?0.18.3" type="text/javascript"></script>
+ <!-- Javascript -->
+<!--[if lte IE 8]><script src="/public/javascripts/bind.js"></script><![endif]-->
+<script src="/public/javascripts/details.polyfill.js"></script>
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/govuk/shim-links-with-button-role.js"></script>
+<script src="/public/javascripts/govuk/show-hide-content.js"></script>
+<script src="/public/javascripts/application.js"></script>
+
+
+  <script src="/public/javascripts/auto-store-data.js"></script>

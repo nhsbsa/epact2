@@ -18,28 +18,18 @@
       
 <header class="page-header">
         <p class="page-header--sub heading-secondary">Register to use ePACT2</p>
-        <h1>Your details</h1>
+        <h1>organisation details and authorisation</h1>
       </header>
 
 <fieldset class="nhsuk-fieldset">
   <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
     <h1 class="nhsuk-fieldset__heading">
-      What is your name?
+      What is the name of your organisation?
     </h1>
   </legend>
 
 <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="first-name">
-      First name
-    </label>
-    <input class="nhsuk-input" id="first-name" name="first-name" type="text">
-  </div>
-
-  <div class="nhsuk-form-group">
-    <label class="nhsuk-label" for="last-name">
-      Last name
-    </label>
-    <input class="nhsuk-input" id="last-name" name="last-name" type="text">
+    <input class="nhsuk-input" id="org-name" name="org-name" type="text">
   </div>
 
   </fieldset>
@@ -47,12 +37,12 @@
 <fieldset class="nhsuk-fieldset">
   <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
     <h1 class="nhsuk-fieldset__heading">
-      What is your email address?
+      What is your organisation code?
     </h1>
   </legend>
 
 <div class="nhsuk-form-group">
-    <input class="nhsuk-input" id="email-address" name="email-aaddress" type="text">
+    <input class="nhsuk-input" id="org-code" name="org-code" type="text">
   </div>
 
   </fieldset>
@@ -60,12 +50,12 @@
 <fieldset class="nhsuk-fieldset">
   <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
     <h1 class="nhsuk-fieldset__heading">
-      What is your job title?
+      What is the name of your authoriser?
     </h1>
   </legend>
 
 <div class="nhsuk-form-group">
-    <input class="nhsuk-input" id="job-title" name="job-title" type="text">
+    <input class="nhsuk-input" id="auth-name" name="auth-name" type="text">
   </div>
 
   </fieldset>
@@ -73,26 +63,19 @@
 <fieldset class="nhsuk-fieldset">
   <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
     <h1 class="nhsuk-fieldset__heading">
-      Why do you need access to ePACT2?
+      What is their email address?
     </h1>
   </legend>
 
-  <textarea class="nhsuk-textarea" id="example" name="example" rows="5" aria-describedby="example-hint"></textarea>
- 
+<div class="nhsuk-form-group">
+    <input class="nhsuk-input" id="auth-email-address" name="auth-email-address" type="text">
+  </div>
+
   </fieldset>
-  
-  <br><br>
 
-  <div class="nhsuk-checkboxes__item">
-        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox" value="email">
-        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-          Tick here to confirm you've read the ePACT2 user agreement (EUA)
-        </label>
-      </div>
 
-  <br><br>
 
-      <a href="epact-org-type" class="nhsuk-button nhsuk-u-margin-bottom-8">
+      <a href="epact-cya" class="nhsuk-button nhsuk-u-margin-bottom-8">
         Continue
       </a>
 
