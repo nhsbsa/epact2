@@ -1,0 +1,46 @@
+{% extends 'layouts/layout-transactional.html' %}
+
+{% block pageTitle %}
+  ePACT2 registration
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  href: "/",
+  text: "Home"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      
+<header class="page-header">
+        <p class="page-header--sub heading-secondary">Register to use ePACT2</p>
+        <h1>Your organisation</h1>
+      </header>
+
+<fieldset class="nhsuk-fieldset">
+  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+    <h1 class="nhsuk-fieldset__heading">
+      Which organisation do you work for?
+    </h1>
+  </legend>
+
+<div class="nhsuk-form-group">
+    <label class="nhsuk-label" for="first-name">
+    </label>
+    <input class="nhsuk-input" id="first-name" name="first-name" type="text">
+  </div>
+
+  </fieldset>
+
+      <a href="epact-trust-access" class="nhsuk-button nhsuk-u-margin-bottom-8">
+        Continue
+      </a>
+
+    </div>
+
+  </div>
+{% endblock %}

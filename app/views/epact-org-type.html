@@ -21,6 +21,9 @@
         <h1>Your organisation's details</h1>
       </header>
 
+        
+        <form class="form" action="orgType" method="GET"> <!-- wrapped both questions inside <form> -->
+
 <fieldset class="nhsuk-fieldset">
   <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
     <h1 class="nhsuk-heading-l">
@@ -32,46 +35,56 @@
 
     <div class="nhsuk-radios">
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-hints-1" name="example-hints" type="radio" value="yes">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-1">
+        <input class="nhsuk-radios__input" id="checkBoxOne" name="incomesingle" value="gp-practice" type="radio" aria-controls="medicineusereviews" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxOne">
           GP Practice
         </label>
       </div>
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-hints-2" name="example-hints" type="radio" value="no">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-2">
+        <input class="nhsuk-radios__input" id="checkBoxTwo" name="incomesingle" value="primary-care-network" type="radio" aria-controls="applianceusereviews" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxTwo">
           Primary Care Network (PCN)
         </label>
       </div>
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-hints-3" name="example-hints" type="radio" value="not sure">
+        <input class="nhsuk-radios__input" id="checkBoxThree" name="incomesingle" value="trust-other" type="radio" aria-controls="applianceusereviews" aria-expanded="false">
         <label class="nhsuk-label nhsuk-radios__label" for="example-hints-3">
-          NHS Trust/other
+          NHS Trust
         </label>
         <span class="nhsuk-hint nhsuk-radios__hint" id="example-hints-2-item-hint">
         Choose this option if you are:
         <ul>
         <li>a CCG  </li>              
-        <li>NHS England Local Team</li>
         <li>Hospital Trusts</li>
         <li>ISHP</li>
         <li>Local Authority</li>
-        <li>Commissioning Support Units (CSUs)</li>
        </ul> </span>
       </div>
-            <div class="nhsuk-radios__item" data-target="wages-reveal">
-        <input class="nhsuk-radios__input" id="example-hints-4" name="example-hints" type="radio" value="no" aria-controls="wages-reveal-2" aria-expanded="false">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-4">
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="checkBoxFour" name="incomesingle" value="commissioning-support-unit" type="radio" aria-controls="applianceusereviews" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxFour">
+          Commissioning Support Units (CSUs)
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="checkBoxFive" name="incomesingle" value="national-orgs" type="radio" aria-controls="applianceusereviews" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxFive">
+          National Level organisation (DHSC, NHSE&I)
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="checkBoxSix" name="incomesingle" value="other-orgs" type="radio" aria-controls="applianceusereviews" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxSix">
           Public sector and other organisations who need to monitor and manage prescribing data in primary care
         </label>
       </div>
+
     </div>
   </div>
 
 </fieldset>
-      <a href="epact-access-level" class="nhsuk-button nhsuk-u-margin-bottom-8">
-        Continue
-      </a>
+         <input class="nhsuk-button nhsuk-u-margin-bottom-8" type="submit" value="Continue">
+        </form>
 
     </div>
 

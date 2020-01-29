@@ -1,0 +1,68 @@
+{% extends 'layouts/layout-transactional.html' %}
+
+{% block pageTitle %}
+  ePACT2 registration
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  href: "/",
+  text: "Home"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      
+<header class="page-header">
+        <p class="page-header--sub heading-secondary">Register to use ePACT2</p>
+        <h1>Access level</h1>
+      </header>
+
+<fieldset class="nhsuk-fieldset">
+  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+    <h1 class="nhsuk-heading-l">
+      Select the level of access you need
+    </h1>
+  </legend>
+
+  <div class="nhsuk-form-group">
+
+    <div class="nhsuk-radios">
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-hints-2" name="example-hints" type="radio" value="no">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-2">
+          Prescriber level
+        </label>
+      </div>
+        <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="example-hints-4" name="example-hints" type="radio" value="no" aria-controls="wages-reveal-2" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-4">
+          Financial level
+        </label>
+      </div>
+    </div>
+  </div>
+
+</fieldset>
+      <a href="epact-trust-auth" class="nhsuk-button nhsuk-u-margin-bottom-8">
+        Continue
+      </a>
+
+    </div>
+
+  </div>
+{% endblock %}
+    <script src="/public/javascripts/govuk-template.js?0.18.3" type="text/javascript"></script>
+ <!-- Javascript -->
+<!--[if lte IE 8]><script src="/public/javascripts/bind.js"></script><![endif]-->
+<script src="/public/javascripts/details.polyfill.js"></script>
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/govuk/shim-links-with-button-role.js"></script>
+<script src="/public/javascripts/govuk/show-hide-content.js"></script>
+<script src="/public/javascripts/application.js"></script>
+
+
+  <script src="/public/javascripts/auto-store-data.js"></script>
