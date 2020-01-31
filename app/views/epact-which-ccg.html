@@ -1,0 +1,180 @@
+{% extends 'layouts/layout-transactional.html' %}
+
+{% block pageTitle %}
+  ePACT2 registration
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  href: "/",
+  text: "Home"
+}) }}
+{% endblock %}
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      
+<header class="page-header">
+        <p class="page-header--sub heading-secondary">Register to use ePACT2</p>
+        <h1>Your organisation</h1>
+      </header>
+
+<fieldset class="nhsuk-fieldset">
+  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+    <h1 class="nhsuk-heading-l">
+      Which CSU do you work for?
+    </h1>
+  </legend>
+
+ <!-- Search box -->
+              <div class="search-wrapper">
+                <button id="filterHead" class="filter-button">
+                    <div id="input-label" class="label-space form-label-bold">Select all that apply
+                        <span class="chevron" style="float:right;">
+                            <span id="up" style="display:none; font-size:24px; margin-top:4px;">⌃</span>
+                            <span id="down" style="display:inline-block; margin-top:-4px; transform: rotate(180deg); font-size:24px;">⌃</span>
+                        </span>    
+                    </div>
+                    
+                    <div id="count" class="show-count"></div>
+                </button>    
+                <div class="search-body" style="display:block;">
+                    <!-- List of results -->
+                    <fieldset>
+                        <legend class="visuallyhidden">Checkbox inputs</legend>
+                        <ul id="service-list" class="frame scroll-box">
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Aceclofenac" name="Aceclofenac" class="list-input" type="checkbox" value="true" onclick="updateCount();">
+                                    <label class="check-label" for="Aceclofenac">Aceclofenac</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Acemetacin" name="Acemetacin" class="list-input" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Acemetacin">Acemetacin</label>
+                                </div>          
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Celecoxib" name="Celecoxib" class="list-input" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Celecoxib">Celecoxib</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Dexketoprofen" class="list-input" name="Dexketoprofen" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Dexketoprofen">Dexketoprofen</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Diclofenac Potassium" class="list-input" name="Diclofenac Potassium" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Diclofenac Potassium">Diclofenac Potassium</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Diclofenac Sodium" class="list-input" name="Diclofenac Sodium" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Diclofenac Sodium">Diclofenac Sodium</label>
+                                </div>          
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Etodolac" class="list-input" name="Etodolac" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Etodolac">Etodolac</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Etoricoxib" class="list-input" name="Etoricoxib" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Etoricoxib">Etoricoxib</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Flurbiprofen" class="list-input" name="Flurbiprofen" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Flurbiprofen">Flurbiprofen</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Ibuprofen" class="list-input" name="Ibuprofen" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Ibuprofen">Ibuprofen</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Indometacin" class="list-input" name="Indometacin" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Indometacin">Indometacin</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Ketoprofen" class="list-input" name="Ketoprofen" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Ketoprofen">Ketoprofen</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Mefenamic Acid" class="list-input" name="Mefenamic Acid" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Mefenamic Acid">Mefenamic Acid</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Meloxicam" class="list-input" name="Meloxicam" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Meloxicam">Meloxicam</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Nabumetone" class="list-input" name="Nabumetone" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Nabumetone">Nabumetone</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Naproxen" class="list-input" name="Naproxen" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Naproxen">Naproxen</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Piroxicam" class="list-input" name="Piroxicam" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Piroxicam">Piroxicam</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Sulindac" class="list-input" name="Sulindac" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Sulindac">Sulindac</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Tenoxicam" class="list-input" name="Tenoxicam" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Tenoxicam">Tenoxicam</label>
+                                </div>            
+                            </li>
+                            <li class="list-item">
+                                <div class="clear-bg multiple-choice multiple-radio">
+                                    <input id="Tiaprofenic Acid" class="list-input" name="Tiaprofenic Acid" type="checkbox" value="true" onclick="updateCount()">
+                                    <label class="check-label" for="Tiaprofenic Acid">Tiaprofenic Acid</label>
+                                </div>            
+                            </li>
+  
+                        </ul>
+                    </fieldset>
+    <!-- /. -->
+</fieldset>
+
+      <a href="epact-which-CCG" class="nhsuk-button nhsuk-u-margin-bottom-8">
+        Continue
+      </a>
+
+    </div>
+
+  </div>
+{% endblock %}
