@@ -11,6 +11,350 @@
 }) }}
 {% endblock %}
 {% block content %}
+<style>
+  .ui-autocomplete {
+    padding: 0;
+    list-style: none;
+    background-color: #fff;
+    border: 2px solid #6f777b;
+    max-height: 350px;
+    overflow-x: hidden;
+  }
+
+  .ui-autocomplete .ui-menu-item {
+    border-top: 1px solid #bfc1c3;
+    display: block;
+    padding: 4px 6px;
+    color: #0b0c0c;
+    cursor: pointer;
+  }
+
+  .ui-autocomplete .ui-menu-item:first-child {
+    border-top: none;
+  }
+
+  .ui-autocomplete .ui-menu-item.ui-state-focus {
+    font-weight: bold;
+    background-color: #6f777b;
+    color: #fff;
+  }
+
+  .ui-autocomplete {
+    width: 100%;
+  }
+
+  @media (min-width: 641px) {
+    .ui-autocomplete {
+      width: 66.66%;
+    }
+  }
+
+  .added-country .form-control {
+    padding: 0.5em;
+  }
+
+  .typeahead,
+  .tt-query,
+  .tt-hint {
+    font-size: 19px;
+    font-weight: 300;
+    text-transform: none;
+    margin: 0;
+    /* padding: 0.5em; */
+  }
+
+  .tt-hint {
+    display: none;
+  }
+
+  .tt-dropdown-menu {
+    padding: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+
+  .tt-suggestion {
+    padding: 0.5em;
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+  .tt-suggestion p {
+    margin: 0;
+  }
+
+  .tt-suggestion.tt-is-under-cursor {
+    color: #fff;
+    background-color: #0097cf;
+  }
+
+  .twitter-typeahead {
+    width: 100%;
+  }
+
+  .validation-wrapper .optional-section .twitter-typeahead input {
+    margin-bottom: 0;
+  }
+
+  .test-case {
+    overflow: visible;
+  }
+
+  .visually-hidden,
+  .visuallyhidden,
+  .hidden-hint .screenreader-punctuation,
+  .hidden-hint .form-hint {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+
+  .added-country .form-control {
+    padding: 0.5em;
+  }
+
+  .tt-menu {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 65%;
+    max-height: 220px;
+    overflow-y: scroll;
+  }
+
+  .tt-suggestion {
+    padding: 0.5em;
+  }
+
+  .tt-suggestion:hover,
+  .tt-suggestion.tt-cursor {
+    color: #fff;
+    background-color: #0097cf;
+  }
+
+  .tt-suggestion:hover {
+    cursor: pointer;
+  }
+
+  .twitter-typeahead {
+    width: 100%;
+  }
+
+  .test-case {
+    overflow: visible;
+  }
+
+  dialog {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: -webkit-fit-content;
+    height: fit-content;
+    margin: auto;
+    border: solid;
+    padding: 1em;
+    background: white;
+    color: black;
+    display: none;
+  }
+
+  dialog[open] {
+    display: block;
+  }
+
+  dialog+.backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  /* for small devices, modal dialogs go full-screen */
+  @media screen and (max-width: 540px) {
+    dialog[_polyfill_modal] {
+      /* TODO: implement */
+      top: 0;
+      width: auto;
+      margin: 1em;
+    }
+  }
+
+  ._dialog_overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  dialog {
+    display: block;
+    position: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  dialog h1 {
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 700;
+    text-transform: none;
+    font-size: 24px;
+    line-height: 1.0416666667;
+  }
+
+  @media (min-width: 641px) {
+    dialog h1 {
+      font-size: 36px;
+      line-height: 1.1111111111;
+    }
+  }
+
+  dialog[open] {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 15px;
+    width: 90%;
+    border: 5px solid black;
+  }
+
+  @media (min-width: 641px) {
+    dialog[open] {
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 500px;
+    }
+  }
+
+  dialog[open]+.backdrop {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  dialog[open]::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .dialog-button {
+    display: none;
+  }
+
+  .js-enabled .dialog-button {
+    display: block;
+  }
+
+  .js-enabled dialog {
+    display: none;
+  }
+
+  .js-enabled dialog[open] {
+    display: block;
+    position: absolute;
+  }
+
+  .dialog-is-open {
+    overflow: hidden;
+  }
+
+  .disclosure-control {
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #005ea5;
+    background: none;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  @media (min-width: 641px) {
+    .disclosure-control {
+      font-size: 19px;
+      line-height: 1.3157894737;
+    }
+  }
+
+  .disclosure-control__icon {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: url("/public/images/disclosure/icon-closed.png") no-repeat;
+    position: absolute;
+    left: 0;
+    top: 4px;
+  }
+
+  .disclosure-control[aria-expanded="true"] .disclosure-control__icon {
+    background: url("/public/images/disclosure/icon-open.png") no-repeat;
+  }
+
+  .js-enabled div[aria-hidden="true"] {
+    display: none;
+  }
+
+  .js-enabled div[aria-hidden="false"] {
+    display: block;
+  }
+
+  .grid-row:after,
+  #content:after,
+  .notice:after,
+  .panel:after,
+  fieldset:after,
+  .form-section:after,
+  .form-group:after,
+  .form-block:after,
+  .breadcrumbs ol:after,
+  .accordion-with-descriptions-01 .subsection-controls:after,
+  .accordion-with-descriptions-02 .subsection-controls:after,
+  .accordion-with-descriptions-03 .subsection-controls:after,
+  .question:after,
+  .question-first:after,
+  div.test-case-overflow-allowed:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .hint-underneath,
+  .hint {
+    display: block;
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 16px;
+    line-height: 1.25;
+    margin: 0 0 5px 0;
+    color: #6f777b;
+    clear: both;
+  }
+
+  @media (min-width: 641px) {
+
+    .hint-underneath,
+    .hint {
+      font-size: 19px;
+      line-height: 1.3157894737;
+    }
+  }
+</style>
+
+
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
@@ -20,155 +364,37 @@
         <h1>Your organisation</h1>
       </header>
 
-<fieldset class="nhsuk-fieldset">
   <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
     <h1 class="nhsuk-heading-l">
-      Which CSU do you work for?
+      Which CCG do you need access to?
     </h1>
   </legend>
 
- <!-- Search box -->
-              <div class="search-wrapper">
-                <button id="filterHead" class="filter-button">
-                    <div id="input-label" class="label-space form-label-bold">Select all that apply
-                        <span class="chevron" style="float:right;">
-                            <span id="up" style="display:none; font-size:24px; margin-top:4px;">⌃</span>
-                            <span id="down" style="display:inline-block; margin-top:-4px; transform: rotate(180deg); font-size:24px;">⌃</span>
-                        </span>    
-                    </div>
-                    
-                    <div id="count" class="show-count"></div>
-                </button>    
-                <div class="search-body" style="display:block;">
-                    <!-- List of results -->
-                    <fieldset>
-                        <legend class="visuallyhidden">Checkbox inputs</legend>
-                        <ul id="service-list" class="frame scroll-box">
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Aceclofenac" name="Aceclofenac" class="list-input" type="checkbox" value="true" onclick="updateCount();">
-                                    <label class="check-label" for="Aceclofenac">Aceclofenac</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Acemetacin" name="Acemetacin" class="list-input" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Acemetacin">Acemetacin</label>
-                                </div>          
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Celecoxib" name="Celecoxib" class="list-input" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Celecoxib">Celecoxib</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Dexketoprofen" class="list-input" name="Dexketoprofen" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Dexketoprofen">Dexketoprofen</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Diclofenac Potassium" class="list-input" name="Diclofenac Potassium" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Diclofenac Potassium">Diclofenac Potassium</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Diclofenac Sodium" class="list-input" name="Diclofenac Sodium" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Diclofenac Sodium">Diclofenac Sodium</label>
-                                </div>          
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Etodolac" class="list-input" name="Etodolac" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Etodolac">Etodolac</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Etoricoxib" class="list-input" name="Etoricoxib" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Etoricoxib">Etoricoxib</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Flurbiprofen" class="list-input" name="Flurbiprofen" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Flurbiprofen">Flurbiprofen</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Ibuprofen" class="list-input" name="Ibuprofen" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Ibuprofen">Ibuprofen</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Indometacin" class="list-input" name="Indometacin" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Indometacin">Indometacin</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Ketoprofen" class="list-input" name="Ketoprofen" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Ketoprofen">Ketoprofen</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Mefenamic Acid" class="list-input" name="Mefenamic Acid" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Mefenamic Acid">Mefenamic Acid</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Meloxicam" class="list-input" name="Meloxicam" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Meloxicam">Meloxicam</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Nabumetone" class="list-input" name="Nabumetone" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Nabumetone">Nabumetone</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Naproxen" class="list-input" name="Naproxen" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Naproxen">Naproxen</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Piroxicam" class="list-input" name="Piroxicam" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Piroxicam">Piroxicam</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Sulindac" class="list-input" name="Sulindac" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Sulindac">Sulindac</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Tenoxicam" class="list-input" name="Tenoxicam" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Tenoxicam">Tenoxicam</label>
-                                </div>            
-                            </li>
-                            <li class="list-item">
-                                <div class="clear-bg multiple-choice multiple-radio">
-                                    <input id="Tiaprofenic Acid" class="list-input" name="Tiaprofenic Acid" type="checkbox" value="true" onclick="updateCount()">
-                                    <label class="check-label" for="Tiaprofenic Acid">Tiaprofenic Acid</label>
-                                </div>            
-                            </li>
-  
-                        </ul>
-                    </fieldset>
-    <!-- /. -->
-</fieldset>
+              <div class="test-case" style="overflow: visible">
+                <div>
+                  <select id="council" class="typeahead js-hidden" name="council" aria-required="true">
+                    <option value=""></option>
+                    <option value="FA123 - Boots, Eldon Square, Newcastle, NE1 7XE">FA123 - Boots, Eldon Square,
+                      Newcastle, NE1 7XE</option>
+                    <option value="FA124 - Boots, Northumberland Street, Newcastle, NE1 7DQ">FA124 - Boots,
+                      Northumberland Street, Newcastle, NE1 7DQ</option>
+                    <option value="FA125 - Boots, Newcastle Central Station, Newcastle, NE1 5DL">FA125 - Boots,
+                      Newcastle Central Station, Newcastle, NE1 5DL</option>
+                    <option value="FA126 - Boots, Osborne Road, Newcastle, NE2 2AD">FA126 - Boots, Osborne Road,
+                      Newcastle, NE2 2AD</option>
+                    <option value="FA127 - Boots, Gateshead Trinity Square, Gateshead, NE8 1BF">FA127 - Boots, Gateshead
+                      Trinity Square, Gateshead, NE8 1BF</option>
+                    <option value="FA128 - Boots, Byker, Newcastle, NE6 1DN">FA128 - Boots, Byker, Newcastle, NE6 1DN
+                    </option>
+                    <option value="FA129 - Boots, Dunston, Gateshead, NE11 9FJ">FA129 - Boots, Dunston, Gateshead, NE11
+                      9FJ</option>
+                    <option value="YP123 - Boots, Newcastle, NE1">YP123 - Boots, Newcastle, NE1</option>
+                    <option value="YP124 - Boots, Leeds, LS1">YP124 - Boots, Leeds, LS1</option>
+                    <option value="YP125 - Boots, Manchester, M1">YP125 - Boots, Manchester, M1</option>
+                    <option value="YP126 - Boots, Liverpool, L1">YP126 - Boots, Liverpool, L1</option>
+                  </select>
+                </div>
+              </div>
 
       <a href="epact-which-CCG" class="nhsuk-button nhsuk-u-margin-bottom-8">
         Continue
@@ -177,4 +403,8 @@
     </div>
 
   </div>
+    <!-- selector -->
+  <script src="/public/javascripts/typeahead-aria.js"></script>
+  <script src="/public/javascripts/init-autocomplete.js"></script>
 {% endblock %}
+
