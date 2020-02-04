@@ -21,41 +21,42 @@
         <h1>Access level</h1>
       </header>
 
-<fieldset class="nhsuk-fieldset">
-  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
-    <h1 class="nhsuk-heading-l">
-      Select the level of access you need
-    </h1>
+<form class="form" action="pcnAccess" method="GET"> <!-- wrapped both questions inside <form> -->
+
+  <fieldset class="nhsuk-fieldset">
+    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+      <h1 class="nhsuk-heading-l">
+      Select your organisation type
+      </h1>
   </legend>
 
   <div class="nhsuk-form-group">
 
     <div class="nhsuk-radios">
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-hints-2" name="example-hints" type="radio" value="no">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-2">
+        <input class="nhsuk-radios__input" id="checkBoxOne" name="incomesingle" value="prescriber" type="radio" aria-controls="medicineusereviews" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxOne">
           Prescriber level
         </label>
       </div>
       <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-hints-4" name="example-hints" type="radio" value="no" aria-controls="wages-reveal-2" aria-expanded="false">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-4">
+        <input class="nhsuk-radios__input" id="checkBoxTwo" name="incomesingle" value="national-dashboard" type="radio" aria-controls="applianceusereviews" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxTwo">
           National dashboard level
         </label>
       </div>
-            <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="example-hints-4" name="example-hints" type="radio" value="no" aria-controls="wages-reveal-2" aria-expanded="false">
-        <label class="nhsuk-label nhsuk-radios__label" for="example-hints-4">
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="checkBoxFour" name="incomesingle" value="national-level" type="radio" aria-controls="applianceusereviews" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxFour">
           National level
         </label>
       </div>
     </div>
   </div>
 
-</fieldset>
-      <a href="epact-pcn-auth" class="nhsuk-button nhsuk-u-margin-bottom-8">
-        Continue
-      </a>
+    </fieldset>
+         <input class="nhsuk-button nhsuk-u-margin-bottom-8" type="submit" value="Continue">
+</form>
 
     </div>
 

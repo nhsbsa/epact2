@@ -24,6 +24,18 @@ router.get(/orgType/, function (req, res) {
     }
   });
 
+  router.get(/pcnAccess/, function (req, res) {
+    if (req.query.incomesingle === "prescriber") {
+      res.redirect('epact-pcn-auth'); 
+    } else if (req.query.incomesingle === "national-dashboard") {
+      res.redirect('epact-pcn-details');
+    } else if (req.query.incomesingle === "national-level") {
+      res.redirect('epact-pcn-details');
+    } else {
+      return;
+    }
+  });
+
   router.get(/ccgAddAnother/, function (req, res) {
     if (req.query.radioInlineGroup === "Yes" ) {
       res.redirect('epact-which-ccg');
