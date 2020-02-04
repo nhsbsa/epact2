@@ -13,7 +13,7 @@
 
 {% block content %}
   <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
+    <div class="nhsuk-grid-column-two-thirds">
 
       
 <header class="page-header">
@@ -22,56 +22,94 @@
       </header>
 
     <h1 class="nhsuk-heading-l">
-      You've told us you need access to these CCGs
+      Change or remove a CCG
     </h1>
         
-       <div class="nhsuk-table-responsive">
-  <table class="nhsuk-table">
-    <caption class="nhsuk-table__caption">CCgs</caption>
-    <thead class="nhsuk-table__head">
-      <tr class="nhsuk-table__row">
-        <th class="nhsuk-table__header" scope="col">CCG</th>
-        <th class="nhsuk-table__header" scope="col">Access level</th>
-        <th class="nhsuk-table__header" scope="col">Authoriser details</th>
-         <th class="nhsuk-table__header" scope="col"></th>
-     </tr>
-    </thead>
-    <tbody class="nhsuk-table__body">
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">Newcastle-Gateshead CCG</td>
-        <td class="nhsuk-table__cell ">Prescriber level</td>
-        <td class="nhsuk-table__cell ">John Smith<br>john.smith@email.com</td>
-        <td class="nhsuk-table__cell "><a href="epact-ccg-remove">
-        Change or remove<span class="nhsuk-u-visually-hidden"> this CCG</span>
-      </a></td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">North Tyneside CCG</td>
-        <td class="nhsuk-table__cell ">Prescriber level</td>
-        <td class="nhsuk-table__cell ">Joe Bloggs<br>joe.bloggs@email.com</td>
-        <td class="nhsuk-table__cell "><a href="epact-ccg-remove">
-        Change or remove<span class="nhsuk-u-visually-hidden"> this CCG</span>
-      </a></td>
-      </tr>
-      <tr class="nhsuk-table__row">
-        <td class="nhsuk-table__cell">South Tyneside CCG</td>
-        <td class="nhsuk-table__cell ">Prescriber level</td>
-        <td class="nhsuk-table__cell ">Jane Doe<br>jane.doe@email.com</td>
-        <td class="nhsuk-table__cell "><a href="epact-ccg-remove">
-        Change or remove<span class="nhsuk-u-visually-hidden"> this CCG</span>
-      </a></td>
-      </tr>
-    </tbody>
-  </table>
-</div> 
+
+      <dl class="nhsuk-summary-list">
+  
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      CCG name
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>Newcastle-Gateshead CCG</p>
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="#">
+        Change<span class="nhsuk-u-visually-hidden"> CCG name</span>
+      </a>
+
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Access level needed
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>Prescriber level</p>
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="#">
+        Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+      </a>
+
+    </dd>
+
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Caldicott Guardian name
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>John Smith</p>
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="#">
+        Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+      </a>
+
+    </dd>
+
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Caldicott Guardion email
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p>john.smith@email.com</p>
+    </dd>
+
+    <dd class="nhsuk-summary-list__actions">
+
+      <a href="#">
+        Change<span class="nhsuk-u-visually-hidden"> contact details</span>
+      </a>
+
+    </dd>
+
+  </div>
+
+</dl>
+
         
         
-        <form class="form" action="ccgAddAnother" method="GET"> <!-- wrapped both questions inside <form> -->
+        <form class="form" action="ccgChangeRemove" method="GET"> <!-- wrapped both questions inside <form> -->
 
 <fieldset class="nhsuk-fieldset">
   <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
     <h1 class="nhsuk-heading-l">
-      Do you need access to another CCG?
+      Do you want to remove this CCG?
     </h1>
   </legend>
 

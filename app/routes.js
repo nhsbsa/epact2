@@ -31,3 +31,11 @@ router.get(/orgType/, function (req, res) {
       res.redirect('epact-csu-cya');
     }
   });
+
+  router.get(/ccgChangeRemove/, function (req, res) {
+    if (req.query.radioInlineGroup === "Yes" ) {
+      res.redirect('epact-ccg-add-another2');
+    } else {
+      res.redirect('epact-ccg-add-another');
+    }
+  });
