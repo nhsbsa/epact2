@@ -23,3 +23,11 @@ router.get(/orgType/, function (req, res) {
       return;
     }
   });
+
+  router.get(/ccgAddAnother/, function (req, res) {
+    if (req.query.radioInlineGroup === "Yes" ) {
+      res.redirect('epact-which-ccg');
+    } else {
+      res.redirect('epact-csu-cya');
+    }
+  });

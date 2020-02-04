@@ -12,346 +12,83 @@
 {% endblock %}
 {% block content %}
 <style>
-  .ui-autocomplete {
-    padding: 0;
-    list-style: none;
-    background-color: #fff;
-    border: 2px solid #6f777b;
-    max-height: 350px;
-    overflow-x: hidden;
-  }
-
-  .ui-autocomplete .ui-menu-item {
-    border-top: 1px solid #bfc1c3;
-    display: block;
-    padding: 4px 6px;
-    color: #0b0c0c;
-    cursor: pointer;
-  }
-
-  .ui-autocomplete .ui-menu-item:first-child {
-    border-top: none;
-  }
-
-  .ui-autocomplete .ui-menu-item.ui-state-focus {
-    font-weight: bold;
-    background-color: #6f777b;
-    color: #fff;
-  }
-
-  .ui-autocomplete {
-    width: 100%;
-  }
-
-  @media (min-width: 641px) {
-    .ui-autocomplete {
-      width: 66.66%;
-    }
-  }
-
-  .added-country .form-control {
-    padding: 0.5em;
-  }
-
-  .typeahead,
-  .tt-query,
-  .tt-hint {
-    font-size: 19px;
-    font-weight: 300;
-    text-transform: none;
-    margin: 0;
-    /* padding: 0.5em; */
-  }
-
-  .tt-hint {
-    display: none;
-  }
-
-  .tt-dropdown-menu {
-    padding: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    width: 100%;
-  }
-
-  .tt-suggestion {
-    padding: 0.5em;
-    font-size: 19px;
-    line-height: 24px;
-  }
-
-  .tt-suggestion p {
-    margin: 0;
-  }
-
-  .tt-suggestion.tt-is-under-cursor {
-    color: #fff;
-    background-color: #0097cf;
-  }
-
-  .twitter-typeahead {
-    width: 100%;
-  }
-
-  .validation-wrapper .optional-section .twitter-typeahead input {
-    margin-bottom: 0;
-  }
-
-  .test-case {
-    overflow: visible;
-  }
-
-  .visually-hidden,
-  .visuallyhidden,
-  .hidden-hint .screenreader-punctuation,
-  .hidden-hint .form-hint {
-    position: absolute;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-  }
-
-  .added-country .form-control {
-    padding: 0.5em;
-  }
-
-  .tt-menu {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    width: 65%;
-    max-height: 220px;
-    overflow-y: scroll;
-  }
-
-  .tt-suggestion {
-    padding: 0.5em;
-  }
-
-  .tt-suggestion:hover,
-  .tt-suggestion.tt-cursor {
-    color: #fff;
-    background-color: #0097cf;
-  }
-
-  .tt-suggestion:hover {
-    cursor: pointer;
-  }
-
-  .twitter-typeahead {
-    width: 100%;
-  }
-
-  .test-case {
-    overflow: visible;
-  }
-
-  dialog {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: -moz-fit-content;
-    width: -webkit-fit-content;
-    width: fit-content;
-    height: -moz-fit-content;
-    height: -webkit-fit-content;
-    height: fit-content;
-    margin: auto;
-    border: solid;
-    padding: 1em;
-    background: white;
-    color: black;
-    display: none;
-  }
-
-  dialog[open] {
-    display: block;
-  }
-
-  dialog+.backdrop {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.1);
-  }
-
-  /* for small devices, modal dialogs go full-screen */
-  @media screen and (max-width: 540px) {
-    dialog[_polyfill_modal] {
-      /* TODO: implement */
-      top: 0;
-      width: auto;
-      margin: 1em;
-    }
-  }
-
-  ._dialog_overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  dialog {
-    display: block;
-    position: inherit;
-    margin: 0;
-    padding: 0;
-    border: 0;
-  }
-
-  dialog h1 {
-    font-family: "nta", Arial, sans-serif;
-    font-weight: 700;
-    text-transform: none;
-    font-size: 24px;
-    line-height: 1.0416666667;
-  }
-
-  @media (min-width: 641px) {
-    dialog h1 {
-      font-size: 36px;
-      line-height: 1.1111111111;
-    }
-  }
-
-  dialog[open] {
-    box-sizing: border-box;
-    margin: 0 auto;
-    padding: 15px;
-    width: 90%;
-    border: 5px solid black;
-  }
-
-  @media (min-width: 641px) {
-    dialog[open] {
-      padding: 30px;
-      margin: 30px auto;
-      max-width: 500px;
-    }
-  }
-
-  dialog[open]+.backdrop {
-    background: rgba(0, 0, 0, 0.8);
-  }
-
-  dialog[open]::backdrop {
-    background: rgba(0, 0, 0, 0.8);
-  }
-
-  .dialog-button {
-    display: none;
-  }
-
-  .js-enabled .dialog-button {
-    display: block;
-  }
-
-  .js-enabled dialog {
-    display: none;
-  }
-
-  .js-enabled dialog[open] {
-    display: block;
-    position: absolute;
-  }
-
-  .dialog-is-open {
-    overflow: hidden;
-  }
-
-  .disclosure-control {
-    font-family: "nta", Arial, sans-serif;
-    font-weight: 400;
-    text-transform: none;
-    font-size: 16px;
-    line-height: 1.25;
-    color: #005ea5;
-    background: none;
-    cursor: pointer;
-    border: none;
-    padding: 0;
-    text-decoration: underline;
-    padding-left: 20px;
+.autocomplete-wrapper {
+    max-width: 20em;
+    margin-bottom: 4rem;
+}
+.autocomplete__wrapper {
     position: relative;
-  }
-
-  @media (min-width: 641px) {
-    .disclosure-control {
-      font-size: 19px;
-      line-height: 1.3157894737;
-    }
-  }
-
-  .disclosure-control__icon {
-    display: block;
-    width: 12px;
-    height: 12px;
-    background: url("/public/images/disclosure/icon-closed.png") no-repeat;
-    position: absolute;
-    left: 0;
-    top: 4px;
-  }
-
-  .disclosure-control[aria-expanded="true"] .disclosure-control__icon {
-    background: url("/public/images/disclosure/icon-open.png") no-repeat;
-  }
-
-  .js-enabled div[aria-hidden="true"] {
+}
+.autocomplete__hint, .autocomplete__input, .autocomplete__option {
+    font-size: 19px;
+    line-height: 1.31579;
+}
+.autocomplete__input--default {
+    padding: 5px;
+}
+.autocomplete__input {
+    position: relative;
+}
+.autocomplete__input {
+    -webkit-appearance: none;
+    border: 2px solid #0b0c0c;
+    border-radius: 0;
+    -webkit-box-sizing: border-box;
+    margin-bottom: 0;
+    width: 100%;
+}
+.autocomplete__menu--inline {
+    position: relative;
+}
+.autocomplete__menu--hidden {
     display: none;
-  }
-
-  .js-enabled div[aria-hidden="false"] {
-    display: block;
-  }
-
-  .grid-row:after,
-  #content:after,
-  .notice:after,
-  .panel:after,
-  fieldset:after,
-  .form-section:after,
-  .form-group:after,
-  .form-block:after,
-  .breadcrumbs ol:after,
-  .accordion-with-descriptions-01 .subsection-controls:after,
-  .accordion-with-descriptions-02 .subsection-controls:after,
-  .accordion-with-descriptions-03 .subsection-controls:after,
-  .question:after,
-  .question-first:after,
-  div.test-case-overflow-allowed:after {
-    content: "";
-    display: block;
-    clear: both;
-  }
-
-  .hint-underneath,
-  .hint {
-    display: block;
-    font-family: "nta", Arial, sans-serif;
-    font-weight: 400;
+}
+.autocomplete__menu {
+    background-color: #fff;
+    border: 2px solid #0b0c0c;
+    border-top: 0;
+    color: #0b0c0c;
+    margin: 0;
+    max-height: 342px;
+    overflow-x: hidden;
+    padding: 0;
+    width: calc(100% - 4px);
+}
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+select {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark-color(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
     text-transform: none;
-    font-size: 16px;
-    line-height: 1.25;
-    margin: 0 0 5px 0;
-    color: #6f777b;
-    clear: both;
-  }
-
-  @media (min-width: 641px) {
-
-    .hint-underneath,
-    .hint {
-      font-size: 19px;
-      line-height: 1.3157894737;
-    }
-  }
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    -webkit-appearance: menulist;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: rgb(248, 248, 248);
+    cursor: default;
+    margin: 0em;
+    font: 400 11px system-ui;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(166, 166, 166);
+    border-image: initial;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
 </style>
 
 
@@ -370,33 +107,22 @@
     </h1>
   </legend>
 
-              <div class="test-case" style="overflow: visible">
-                <div>
-                  <select id="council" class="typeahead js-hidden" name="council" aria-required="true">
-                    <option value=""></option>
-                    <option value="FA123 - Boots, Eldon Square, Newcastle, NE1 7XE">FA123 - Boots, Eldon Square,
-                      Newcastle, NE1 7XE</option>
-                    <option value="FA124 - Boots, Northumberland Street, Newcastle, NE1 7DQ">FA124 - Boots,
-                      Northumberland Street, Newcastle, NE1 7DQ</option>
-                    <option value="FA125 - Boots, Newcastle Central Station, Newcastle, NE1 5DL">FA125 - Boots,
-                      Newcastle Central Station, Newcastle, NE1 5DL</option>
-                    <option value="FA126 - Boots, Osborne Road, Newcastle, NE2 2AD">FA126 - Boots, Osborne Road,
-                      Newcastle, NE2 2AD</option>
-                    <option value="FA127 - Boots, Gateshead Trinity Square, Gateshead, NE8 1BF">FA127 - Boots, Gateshead
-                      Trinity Square, Gateshead, NE8 1BF</option>
-                    <option value="FA128 - Boots, Byker, Newcastle, NE6 1DN">FA128 - Boots, Byker, Newcastle, NE6 1DN
-                    </option>
-                    <option value="FA129 - Boots, Dunston, Gateshead, NE11 9FJ">FA129 - Boots, Dunston, Gateshead, NE11
-                      9FJ</option>
-                    <option value="YP123 - Boots, Newcastle, NE1">YP123 - Boots, Newcastle, NE1</option>
-                    <option value="YP124 - Boots, Leeds, LS1">YP124 - Boots, Leeds, LS1</option>
-                    <option value="YP125 - Boots, Manchester, M1">YP125 - Boots, Manchester, M1</option>
-                    <option value="YP126 - Boots, Liverpool, L1">YP126 - Boots, Liverpool, L1</option>
-                  </select>
-                </div>
-              </div>
+<label for="my-autocomplete">Select a CCG</label>
+<div id="my-autocomplete-container"></div>
+<br><br>
 
-      <a href="epact-which-CCG" class="nhsuk-button nhsuk-u-margin-bottom-8">
+
+{# <div class="autocomplete-wrapper">
+          <div><div class="autocomplete__wrapper"><div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"><div id="last-location__status--A" role="status" aria-atomic="true" aria-live="polite"></div><div id="last-location__status--B" role="status" aria-atomic="true" aria-live="polite"></div></div><input aria-expanded="false" aria-owns="last-location__listbox" aria-autocomplete="both" aria-describedby="last-location__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--default" id="last-location" name="" placeholder="" type="text" role="combobox"><ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="last-location__listbox" role="listbox"></ul><span id="last-location__assistiveHint" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span></div></div><select name="last-location" id="last-location-select" style="display: none;">
+            <option value="">Select a country</option>
+            <option value="newcastlegateshead">Newcastle-Gateshead CCG</option>
+            <option value="northtyne">North Tyneside CCG</option>
+            <option value="northumberland">Northumberland CCG</option>
+            <option value="southtyne">South Tyneside CCG</option>
+            <option value="sunderland">Sunderland CCG</option>
+          </select>
+        </div> #}
+      <a href="epact-ccg-access" class="nhsuk-button nhsuk-u-margin-bottom-8">
         Continue
       </a>
 
@@ -404,7 +130,39 @@
 
   </div>
     <!-- selector -->
-  <script src="/public/javascripts/typeahead-aria.js"></script>
-  <script src="/public/javascripts/init-autocomplete.js"></script>
+<script type="text/javascript" src="https://alphagov.github.io/accessible-autocomplete/dist/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+      const countries = [
+      'Newcastle-Gateshead CCG',
+      'North Tyneside CCG',
+      'Northumberland CCG',
+      'South Tyneside CCG',
+      'Sunderland CCG'
+      ]
+
+      accessibleAutocomplete({
+        element: document.querySelector('#my-autocomplete-container'),
+        id: 'my-autocomplete', // To match it to the existing <label>.
+        source: countries
+      })
+      
+      /*var selectEl = document.querySelector('#last-location')
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: true,
+        confirmOnBlur: true,
+        defaultValue: "",
+        minLength: 2,
+        selectElement: selectEl
+      })
+
+      var queryStringParameters = window.location.search
+      var previouslySubmitted = queryStringParameters.length > 0
+      if (previouslySubmitted) {
+        var submittedEl = document.querySelector('.submitted')
+        submittedEl.classList.remove('submitted--hidden')
+        var params = new URLSearchParams(document.location.search.split('?')[1])
+        document.querySelector('.submitted__last-location').innerHTML = params.get('last-location')
+      }*/
+  </script>
 {% endblock %}
 

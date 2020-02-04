@@ -1,0 +1,115 @@
+{% extends 'layouts/layout-transactional.html' %}
+
+{% block pageTitle %}
+  ePACT2 registration
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+  href: "/",
+  text: "Home"
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      
+<header class="page-header">
+        <p class="page-header--sub heading-secondary">Register to use ePACT2</p>
+        <h1>Your organisation's details</h1>
+      </header>
+
+    <h1 class="nhsuk-heading-l">
+      You've told us you need access to these CCGs
+    </h1>
+        
+       <div class="nhsuk-table-responsive">
+  <table class="nhsuk-table">
+    <caption class="nhsuk-table__caption">CCgs</caption>
+    <thead class="nhsuk-table__head">
+      <tr class="nhsuk-table__row">
+        <th class="nhsuk-table__header" scope="col">CCG</th>
+        <th class="nhsuk-table__header" scope="col">Access level</th>
+        <th class="nhsuk-table__header" scope="col">Authoriser details</th>
+         <th class="nhsuk-table__header" scope="col"></th>
+     </tr>
+    </thead>
+    <tbody class="nhsuk-table__body">
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">Newcastle-Gateshead CCG</td>
+        <td class="nhsuk-table__cell ">Prescriber level</td>
+        <td class="nhsuk-table__cell ">John Smith<br>john.smith@email.com</td>
+        <td class="nhsuk-table__cell "><a href="#">
+        Change or remove<span class="nhsuk-u-visually-hidden"> this CCG</span>
+      </a></td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">North Tyneside CCG</td>
+        <td class="nhsuk-table__cell ">Prescriber level</td>
+        <td class="nhsuk-table__cell ">Joe Bloggs<br>joe.bloggs@email.com</td>
+        <td class="nhsuk-table__cell "><a href="#">
+        Change or remove<span class="nhsuk-u-visually-hidden"> this CCG</span>
+      </a></td>
+      </tr>
+      <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">South Tyneside CCG</td>
+        <td class="nhsuk-table__cell ">Prescriber level</td>
+        <td class="nhsuk-table__cell ">Jane Doe<br>jane.doe@email.com</td>
+        <td class="nhsuk-table__cell "><a href="#">
+        Change or remove<span class="nhsuk-u-visually-hidden"> this CCG</span>
+      </a></td>
+      </tr>
+    </tbody>
+  </table>
+</div> 
+        
+        
+        <form class="form" action="ccgAddAnother" method="GET"> <!-- wrapped both questions inside <form> -->
+
+<fieldset class="nhsuk-fieldset">
+  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+    <h1 class="nhsuk-heading-l">
+      Do you need access to another CCG?
+    </h1>
+  </legend>
+
+  <div class="nhsuk-form-group">
+
+    <div class="nhsuk-radios">
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="checkBoxOne" name="radioInlineGroup" value="Yes" type="radio" aria-controls="medicineusereviews" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxOne">
+          Yes
+        </label>
+      </div>
+      <div class="nhsuk-radios__item">
+        <input class="nhsuk-radios__input" id="checkBoxTwo" name="radioInlineGroup" value="No" type="radio" aria-controls="applianceusereviews" aria-expanded="false">
+        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxTwo">
+          No
+        </label>
+      </div>
+
+    </div>
+  </div>
+
+</fieldset>
+         <input class="nhsuk-button nhsuk-u-margin-bottom-8" type="submit" value="Continue">
+        </form>
+
+    </div>
+
+  </div>
+{% endblock %}
+    <script src="/public/javascripts/govuk-template.js?0.18.3" type="text/javascript"></script>
+ <!-- Javascript -->
+<!--[if lte IE 8]><script src="/public/javascripts/bind.js"></script><![endif]-->
+<script src="/public/javascripts/details.polyfill.js"></script>
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/govuk/shim-links-with-button-role.js"></script>
+<script src="/public/javascripts/govuk/show-hide-content.js"></script>
+<script src="/public/javascripts/application.js"></script>
+
+
+  <script src="/public/javascripts/auto-store-data.js"></script>
