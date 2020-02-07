@@ -4,7 +4,13 @@
   <title></title>
 </head>
 <body>
-  {% extends 'layouts/layout-transactional.html' %} {% block pageTitle %} ePACT2 registration {% endblock %} {% block beforeContent %} {{ breadcrumb({ href: "/", text: "Home" }) }} {% endblock %} {% block content %}
+  {% extends 'layouts/layout-transactional.html' %} {% block pageTitle %} ePACT2 registration {% endblock %} {% block beforeContent %}  {% endblock %} {% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "#",
+  "text": "Go back"
+}) }} 
   <div class="nhsuk-grid-row">
 <div class="nhsuk-grid-column-two-thirds">
 
@@ -14,7 +20,7 @@
                     Done
             </h1>
             
-            <span class="nhsuk-caption-xl nhsuk-caption--top" style="text-align: center; color: white;">You have completed the ePACT2 registration form</span>
+            <span class="nhsuk-caption-xl nhsuk-caption--top" style="text-align: center; color: white;">You've completed the ePACT2 registration form</span>
 
         </div>
 
@@ -29,6 +35,24 @@
         <p>Once we get confirmation from your authorisers, we'll send you an email with your access details.</p>
 
         <p>If you do not get the email, contact us.</p>
+
+              <p>
+        NHSBSA provide training on how to use ePACT2.  you can find out more:
+      </p>
+
+      <ul>
+        <li>
+          on the <a href="https://www.nhsbsa.nhs.uk/epact2/epact2-training">NHSBSA website</a>
+        </li>
+        <li>
+          by contacting the training team at <a href="nhsbsa.epact2training@nhs.net ">nhsbsa.epact2training@nhs.net</a>
+        </li>
+      </ul>
+
+      <p>
+        Once your account is active, your user ID will be deactivated if you do not access the system for 6 months.
+      </p>
+
 
         <a href="epact-start2" class="nhsuk-button">
             Start a new application

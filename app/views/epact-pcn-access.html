@@ -5,13 +5,15 @@
 {% endblock %}
 
 {% block beforeContent %}
-{{ breadcrumb({
-  href: "/",
-  text: "Home"
-}) }}
 {% endblock %}
 
 {% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "#",
+  "text": "Go back"
+}) }} 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
@@ -37,12 +39,6 @@
         <input class="nhsuk-radios__input" id="checkBoxOne" name="incomesingle" value="prescriber" type="radio" aria-controls="medicineusereviews" aria-expanded="false">
         <label class="nhsuk-label nhsuk-radios__label" for="checkBoxOne">
           Prescriber level
-        </label>
-      </div>
-      <div class="nhsuk-radios__item">
-        <input class="nhsuk-radios__input" id="checkBoxTwo" name="incomesingle" value="national-dashboard" type="radio" aria-controls="applianceusereviews" aria-expanded="false">
-        <label class="nhsuk-label nhsuk-radios__label" for="checkBoxTwo">
-          National dashboard level
         </label>
       </div>
       <div class="nhsuk-radios__item">

@@ -5,20 +5,22 @@
 {% endblock %}
 
 {% block beforeContent %}
-{{ breadcrumb({
-  href: "/",
-  text: "Home"
-}) }}
 {% endblock %}
 
 {% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "#",
+  "text": "Go back"
+}) }} 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
       
 <header class="page-header">
         <p class="page-header--sub heading-secondary">Register to use ePACT2</p>
-        <h1>organisation details and authorisation</h1>
+        <h1>Organisation details and authorisation</h1>
       </header>
 
 <fieldset class="nhsuk-fieldset">

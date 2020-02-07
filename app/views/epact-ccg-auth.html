@@ -5,13 +5,15 @@
 {% endblock %}
 
 {% block beforeContent %}
-{{ breadcrumb({
-  href: "/",
-  text: "Home"
-}) }}
 {% endblock %}
 
 {% block content %}
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "#",
+  "text": "Go back"
+}) }} 
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
@@ -37,7 +39,7 @@
 <fieldset class="nhsuk-fieldset">
   <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
     <h1 class="nhsuk-fieldset__heading">
-      What is their email address?
+      What is their work email address?
     </h1>
   </legend>
 
