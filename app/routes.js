@@ -16,9 +16,9 @@ router.get(/orgType/, function (req, res) {
     } else if (req.query.incomesingle === "commissioning-support-unit") {
       res.redirect('epact-which-csu');
     } else if (req.query.incomesingle === "national-orgs") {
-      res.redirect('epact-national-auth');
-    } else if (req.query.incomesingle === "other-orgs") {
-      res.redirect('epact-trust-access');
+      res.redirect('epact-national-access');
+    } else if (req.query.incomesingle === "local-team") {
+      res.redirect('epact-which-team');
     } else {
       return;
     }

@@ -1,0 +1,170 @@
+{% extends 'layouts/layout-transactional.html' %}
+
+{% block pageTitle %}
+  ePACT2 registration
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+<style>
+.autocomplete-wrapper {
+    max-width: 20em;
+    margin-bottom: 4rem;
+}
+.autocomplete__wrapper {
+    position: relative;
+}
+.autocomplete__hint, .autocomplete__input, .autocomplete__option {
+    font-size: 19px;
+    line-height: 1.31579;
+}
+.autocomplete__input--default {
+    padding: 5px;
+}
+.autocomplete__input {
+    position: relative;
+}
+.autocomplete__input {
+    -webkit-appearance: none;
+    border: 2px solid #0b0c0c;
+    border-radius: 0;
+    -webkit-box-sizing: border-box;
+    margin-bottom: 0;
+    width: 100%;
+}
+.autocomplete__menu--inline {
+    position: relative;
+}
+.autocomplete__menu--hidden {
+    display: none;
+}
+.autocomplete__menu {
+    background-color: #fff;
+    border: 2px solid #0b0c0c;
+    border-top: 0;
+    color: #0b0c0c;
+    margin: 0;
+    max-height: 342px;
+    overflow-x: hidden;
+    padding: 0;
+    width: calc(100% - 4px);
+}
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
+select {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark-color(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    text-align: start;
+    -webkit-appearance: menulist;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: rgb(248, 248, 248);
+    cursor: default;
+    margin: 0em;
+    font: 400 11px system-ui;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(166, 166, 166);
+    border-image: initial;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: pre;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+</style>
+
+
+{% from 'back-link/macro.njk' import backLink %}
+
+{{ backLink({
+  "href": "#",
+  "text": "Go back"
+}) }} 
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      
+<header class="page-header">
+        <p class="page-header--sub heading-secondary">Register to use ePACT2</p>
+        <h1>Your organisation</h1>
+      </header>
+
+  <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+    <h1 class="nhsuk-heading-l">
+      Which NHS local team do you work for?
+    </h1>
+  </legend>
+
+<label for="my-autocomplete">Select a team</label>
+<div id="my-autocomplete-container"></div>
+<br><br>
+
+
+{# <div class="autocomplete-wrapper">
+          <div><div class="autocomplete__wrapper"><div style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;"><div id="last-location__status--A" role="status" aria-atomic="true" aria-live="polite"></div><div id="last-location__status--B" role="status" aria-atomic="true" aria-live="polite"></div></div><input aria-expanded="false" aria-owns="last-location__listbox" aria-autocomplete="both" aria-describedby="last-location__assistiveHint" autocomplete="off" class="autocomplete__input autocomplete__input--default" id="last-location" name="" placeholder="" type="text" role="combobox"><ul class="autocomplete__menu autocomplete__menu--inline autocomplete__menu--hidden" id="last-location__listbox" role="listbox"></ul><span id="last-location__assistiveHint" style="display: none;">When autocomplete results are available use up and down arrows to review and enter to select.  Touch device users, explore by touch or with swipe gestures.</span></div></div><select name="last-location" id="last-location-select" style="display: none;">
+            <option value="">Select a country</option>
+            <option value="cheshwarwir">Cheshire, Warrington & Wirral</option>
+            <option value="ddt">Durham, Darlington & Tees</option>
+            <option value="greatmanch">Greater Manchester</option>
+            <option value="lancashire">Lancashire</option>
+            <option value="merseyside">Merseyside</option>
+          </select>
+        </div> #}
+      <a href="epact-which-ccg" class="nhsuk-button nhsuk-u-margin-bottom-8">
+        Continue
+      </a>
+
+    </div>
+
+  </div>
+    <!-- selector -->
+<script type="text/javascript" src="https://alphagov.github.io/accessible-autocomplete/dist/accessible-autocomplete.min.js"></script>
+<script type="text/javascript">
+      const countries = [
+      'Cheshire, Warrington & Wirral',
+      'Durham, Darlington & Tees',
+      'Greater Manchester',
+      'Lancashire',
+      'Merseyside'
+      ]
+
+      accessibleAutocomplete({
+        element: document.querySelector('#my-autocomplete-container'),
+        id: 'my-autocomplete', // To match it to the existing <label>.
+        source: countries
+      })
+      
+      /*var selectEl = document.querySelector('#last-location')
+      accessibleAutocomplete.enhanceSelectElement({
+        autoselect: true,
+        confirmOnBlur: true,
+        defaultValue: "",
+        minLength: 2,
+        selectElement: selectEl
+      })
+
+      var queryStringParameters = window.location.search
+      var previouslySubmitted = queryStringParameters.length > 0
+      if (previouslySubmitted) {
+        var submittedEl = document.querySelector('.submitted')
+        submittedEl.classList.remove('submitted--hidden')
+        var params = new URLSearchParams(document.location.search.split('?')[1])
+        document.querySelector('.submitted__last-location').innerHTML = params.get('last-location')
+      }*/
+  </script>
+{% endblock %}
+
